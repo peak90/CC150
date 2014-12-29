@@ -1,5 +1,6 @@
 import java.util.*;
 import java.io.*;
+import org.junit.Assert;
 /**
  * This file contains solutions for all problems in Chapter 11
  * Sorting and Search
@@ -230,13 +231,17 @@ public class Chapter11 {
 	public static void main(String[] args) {
 		Chapter11 sol = new Chapter11();
 		RankStream rs = new RankStream();
-		int[] a = new int[]{5,1,9,4,7,4,5,13,3,3,3,3};
+		int[] a = new int[]{5,1,9,4,7,4,5,13,3};
 		for(int i = 0; i < a.length; i++) {
 			rs.track(a[i]);
 		}
-		for(int i = 0; i < a.length; i++) {
-			System.out.println(a[i]+" "+rs.getRank(a[i]));
-		}
+		assertEquals(5,rs.getRank(5));
+		assertEquals(0,rs.getRank(1));
+		assertEquals(1,rs.getRank(3));
+		assertEquals(3,rs.getRank(4));
+		assertEquals(6,rs.getRank(7));
+		assertEquals(7,rs.getRank(9));
+		assertEquals(8,rs.getRank(13));
 	}
 }
 
